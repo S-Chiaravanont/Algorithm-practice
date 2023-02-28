@@ -43,19 +43,24 @@
   </p>
   <script>
     function solution(n, l, r) {
-      let a = l;
-      let b = r;
-      let counter = 0;
-      while (a <= b) {
-        if (a + b === n) {
-          counter++;
-          b--;
-          a = l;
-        } else {
-          a++;
-        }
+      // let a = l;
+      // let b = r;
+      // let counter = 0;
+      // while (a <= b) {
+      //   if (a + b === n) {
+      //     counter++;
+      //     b--;
+      //     a = l;
+      //   } else {
+      //     a++;
+      //   }
+      // }
+      // return counter;
+      var count = 0;
+      for (var i = l; i <= r; i++) {
+        if (i <= (n - i) && (n - i) <= r) { count++; }
       }
-      return counter;
+      return count;
     }
 
     solution(6, 2, 4); // expected result = 2 (2+4, 3+3)
