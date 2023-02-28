@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Least Factorial</title>
+</head>
+<body>
+  <p>
+    Given an integer n, find the minimal k such that
+
+    k = m! (where m! = 1 * 2 * ... * m) for some integer m;
+    k &gt;= n.
+    In other words, find the smallest factorial which is not less than n.
+
+    Example
+
+    For n = 17, the output should be
+    solution(n) = 24.
+
+    17 &lt; 24=4!=1 * 2 * 3 * 4, while 3!=1 * 2 * 3=6 &lt; 17). Input/Output [execution time limit] 4 seconds (js) [input] integer
+      n A positive integer. Guaranteed constraints: 1 ≤ n ≤ 120. [output] integer
+  </p>
+  <script>
+    function solution(n) {
+      if (n === 0) {
+        return 0;
+      }
+      let factorialProduct = 1;
+      let counter = 1;
+      while (factorialProduct < n) {
+        counter++;
+        factorialProduct *= counter;
+      }
+      return factorialProduct;
+    }
+
+    solution(17); // expected result = 24
+  </script>
+</body>
+</html>
