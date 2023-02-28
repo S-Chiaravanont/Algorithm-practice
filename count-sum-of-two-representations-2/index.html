@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Count sum of two representations 2</title>
+</head>
+<body>
+  <p>
+    For n = 6, l = 2, and r = 4, the output should be
+    solution(n, l, r) = 2.
+
+    There are just two ways to write 6 as A + B, where 2 ≤ A ≤ B ≤ 4: 6 = 2 + 4 and 6 = 3 + 3.
+
+    Input/Output
+
+    [execution time limit] 4 seconds (js)
+
+    [input] integer n
+
+    A positive integer.
+
+    Guaranteed constraints:
+    5 ≤ n ≤ 109.
+
+    [input] integer l
+
+    A positive integer.
+
+    Guaranteed constraints:
+    1 ≤ l ≤ r.
+
+    [input] integer r
+
+    A positive integer.
+
+    Guaranteed constraints:
+    l ≤ r ≤ 109,
+    r - l ≤ 106.
+
+    [output] integer
+  </p>
+  <script>
+    function solution(n, l, r) {
+      let a = l;
+      let b = r;
+      let counter = 0;
+      while (a <= b) {
+        if (a + b === n) {
+          counter++;
+          b--;
+          a = l;
+        } else {
+          a++;
+        }
+      }
+      return counter;
+    }
+
+    solution(6, 2, 4); // expected result = 2 (2+4, 3+3)
+  </script>
+</body>
+</html>
